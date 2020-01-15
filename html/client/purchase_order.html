@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>求购单管理</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../css/datatables.min.css" />
+    <link rel="stylesheet" href="../../css/datatable_customization.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap&subset=chinese-simplified">
+    <link rel="stylesheet" href="../../css/index.css" />
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="page-title float-left">求购单管理</div>
+        <div class="type-selection float-right">
+            <!-- <select class="">
+                <option value="1">富集采</option>
+                <option value="2">富博士-法务博士</option>
+                <option value="3">富博士-学院课程</option>
+                <option value="4">富博士-学院课程</option>
+                <option value="5">富博士-金流服务与工具</option>
+                <option value="6">富心安</option>
+                <option value="7">MicroCloud行业专业云</option>
+            </select> -->
+        </div>
+        <table id="table_id" class="display responsive text-center" width="100%">
+            <thead>
+                <tr>
+                    <th>求购单编号</th>
+                    <th>提出时间</th>
+                    <th>币别</th>
+                    <th>求购单状态</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                </tr>
+            </tbody>
+            <!-- <tfoot>
+                <tr>
+                    <th>求购单编号</th>
+                    <th>提出时间</th>
+                    <th>币别</th>
+                    <th>求购单状态</th>
+                    <th>操作</th>
+                </tr>
+            </tfoot> -->
+        </table>
+    </div>
+    <div class="text-center"><a href="../index.html">回首页</a></div>
+
+
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/jquery-3.4.1.min.js"></script>
+    <script src="../../js/datatables.min.js"></script>
+    <script>
+        var mock_data = [
+            {
+                "no": "19122314254101",
+                "submitted_date": "2019-12-23 14:25:00",
+                "currency": "USD",
+                "status": "报价逾期",
+                "manupulate": "查询资料"
+            },
+            {
+                "no": "19122017197430",
+                "submitted_date": "2019-12-20 17:19:00",
+                "currency": "CNY",
+                "status": "新求购单",
+                "manupulate": "去支付"
+            },
+            {
+                "no": "19122314254102",
+                "submitted_date": "2019-12-23 14:25:00",
+                "currency": "USD",
+                "status": "订单成立",
+                "manupulate": "查询资料"
+            },
+            {
+                "no": "19122017197431",
+                "submitted_date": "2019-12-20 17:19:00",
+                "currency": "CNY",
+                "status": "新求购单",
+                "manupulate": "去支付"
+            },
+            {
+                "no": "19122314254103",
+                "submitted_date": "2019-12-23 14:25:00",
+                "currency": "USD",
+                "status": "报价失效",
+                "manupulate": "查询资料"
+            },
+            {
+                "no": "19122017197432",
+                "submitted_date": "2019-12-20 17:19:00",
+                "currency": "CNY",
+                "status": "订单成立",
+                "manupulate": "去支付"
+            },
+            {
+                "no": "19122314254104",
+                "submitted_date": "2019-12-23 14:25:00",
+                "currency": "USD",
+                "status": "报价逾期",
+                "manupulate": "去支付"
+            },
+            {
+                "no": "19122017197433",
+                "submitted_date": "2019-12-20 17:19:00",
+                "currency": "CNY",
+                "status": "报价中",
+                "manupulate": "查询资料"
+            },
+            {
+                "no": "19122314254105",
+                "submitted_date": "2019-12-23 14:25:00",
+                "currency": "USD",
+                "status": "报价逾期",
+                "manupulate": "去支付"
+            },
+            {
+                "no": "19122017197434",
+                "submitted_date": "2019-12-20 17:19:00",
+                "currency": "CNY",
+                "status": "报价中",
+                "manupulate": "查询资料"
+            },
+            {
+                "no": "19122314254101",
+                "submitted_date": "2019-12-23 14:25:00",
+                "currency": "USD",
+                "status": "报价逾期",
+                "manupulate": "去支付"
+            },
+            {
+                "no": "19122017197430",
+                "submitted_date": "2019-12-20 17:19:00",
+                "currency": "CNY",
+                "status": "新求购单",
+                "manupulate": "查询资料"
+            },
+            {
+                "no": "19122314254102",
+                "submitted_date": "2019-12-23 14:25:00",
+                "currency": "USD",
+                "status": "报价中",
+                "manupulate": "去支付"
+            },
+            {
+                "no": "19122017197431",
+                "submitted_date": "2019-12-20 17:19:00",
+                "currency": "CNY",
+                "status": "报价完成",
+                "manupulate": "查询资料"
+            },
+            {
+                "no": "19122314254103",
+                "submitted_date": "2019-12-23 14:25:00",
+                "currency": "USD",
+                "status": "报价完成",
+                "manupulate": "去支付"
+            },
+            {
+                "no": "19122017197432",
+                "submitted_date": "2019-12-20 17:19:00",
+                "currency": "CNY",
+                "status": "新求购单",
+                "manupulate": "查询资料"
+            },
+            {
+                "no": "19122314254104",
+                "submitted_date": "2019-12-23 14:25:00",
+                "currency": "USD",
+                "status": "报价失效",
+                "manupulate": "去支付"
+            },
+            {
+                "no": "19122017197433",
+                "submitted_date": "2019-12-20 17:19:00",
+                "currency": "CNY",
+                "status": "报价完成",
+                "manupulate": "查询资料"
+            },
+            {
+                "no": "19122314254105",
+                "submitted_date": "2019-12-23 14:25:00",
+                "currency": "USD",
+                "status": "报价逾期",
+                "manupulate": "去支付"
+            },
+            {
+                "no": "19122017197434",
+                "submitted_date": "2019-12-20 17:19:00",
+                "currency": "CNY",
+                "status": "订单成立",
+                "manupulate": "去支付"
+            },
+        ];
+
+        $(document).ready(function () {
+            $('#table_id').DataTable({
+                data: mock_data,  //Place real data instead.
+                columns: [
+                    { data: 'no' },
+                    { data: 'submitted_date' },
+                    { data: 'currency' },
+                    {
+                        data: 'status', render: function (data, type, row, meta) {
+                            if (type === "display") {
+                                if (data === '新求购单') {
+                                    data = "<a href='../index.html' style='color: #7355fa'>" + "<i class='fa fa-star'></i> 新求购单" + "</a>";
+
+                                } else if (data === '订单成立') {
+                                    data = "<a href='../index.html' style='color: #23d2e2'>" + "<i class='fa fa-file-text-o'></i> 订单成立" + "</a>";
+                                } else if (data === '报价中') {
+                                    data = "<a href='../index.html' style='color: #f5a53c'>" + "<i class='fa fa-hourglass-start'></i> 报价中" + "</a>";
+                                } else if (data === '报价完成') {
+                                    data = "<a href='../index.html' style='color: #2de069'>" + "<i class='fa fa-check-circle-o'></i> 报价完成" + "</a>";
+                                } else if (data === '报价逾期') {
+                                    data = "<a href='../index.html' style='color: #6d6d6d'>" + "<i class='fa fa-minus-circle'></i> 报价逾期" + "</a>";
+                                } else {
+                                    data = "<a href='../index.html' style='color: #f34242'>" + "<i class='fa fa-times-circle-o'></i> 报价失效" + "</a>";
+                                }
+                            }
+                            return data;
+                        }
+                    },
+                    {
+                        data: 'manupulate', render: function (data, type, row, meta) {
+                            if (type === "display") {
+                                if (data === '查询资料') {
+                                    data = "<a href='../index.html'>" + "<i class='fa fa-search' title='查询资料'></i>" + "</a>";
+
+                                } else {
+                                    data = "<a href='../index.html'>" + "<i class='fa fa-share' title='去支付'></i>" + "</a>";
+                                }
+                            }
+                            return data;
+                        }
+                    }
+                ],
+                responsive: true,
+                pagingType: "full_numbers",
+                language: {
+                    search: window.innerWidth > 768 ? "搜索:" : "", //for RWD
+                    searchPlaceholder: "请输入求购单编号、币别...etc",
+                    Show: "显示",
+                    entries: "笔资料",
+                    loadingRecords: "资料载入中，请稍候...",
+                    zeroRecords: "查无资料，请尝试其他搜寻条件",
+                    lengthMenu: "每页 _MENU_ 笔资料",
+                    info: "显示 _START_ 到 _END_ 笔资料 (共 _TOTAL_ 笔资料)",
+                    paginate: {
+                        first: '«',
+                        previous: '‹',
+                        next: '›',
+                        last: '»'
+                    },
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

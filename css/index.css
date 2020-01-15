@@ -1,0 +1,66 @@
+body {
+  font-family: 'Noto Sans SC', 'consolas'; }
+  @media (max-width: 767px) {
+    body {
+      font-size: 12px; } }
+
+.container {
+  margin-top: 30px;
+  padding: 15px;
+  background-color: #eee; }
+  .container .row .page-title {
+    font-size: 24px;
+    color: #0a67fb; }
+  .container .row .customized-field {
+    margin-bottom: 10px; }
+    .container .row .customized-field .add-product {
+      float: right;
+      padding-right: 10px; }
+      @media (max-width: 767px) {
+        .container .row .customized-field .add-product {
+          padding-right: 0;
+          width: 100%; }
+          .container .row .customized-field .add-product button {
+            width: 100%; } }
+    .container .row .customized-field .type-selection {
+      width: 250px;
+      float: right; }
+      @media (max-width: 767px) {
+        .container .row .customized-field .type-selection {
+          margin-bottom: 10px;
+          width: 100%; } }
+  .container input,
+  .container select,
+  .container button {
+    height: 35px;
+    padding-left: 10px; }
+  .container input {
+    width: 250px;
+    border: 1px solid transparent;
+    border-radius: 5px; }
+    @media (max-width: 767px) {
+      .container input {
+        width: 100%; } }
+  .container input:focus {
+    background: #ffeeb5;
+    color: #0a67fb;
+    border: 1px solid #0a67fb;
+    border-radius: 5px; }
+  .container select {
+    border: none;
+    border-radius: 5px; }
+  .container button {
+    padding: 0 12px; }
+  @media (max-width: 767px) {
+    .container input,
+    .container select {
+      margin-left: 0 !important; } }
+  .container table {
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    margin-bottom: 20px; }
+    .container table th,
+    .container table td {
+      border: 1px solid #ddd; }
+
+/*# sourceMappingURL=index.css.map */
