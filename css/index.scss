@@ -84,9 +84,13 @@ body {
     background-color: #f1f1f1;
     border: 1px solid #ddd;
     margin-bottom: 20px;
+    overflow: scroll-x;
+
     th,
     td {
       border: 1px solid #ddd;
+      min-width: 60px;
+      font-size: 14px;
     }
   }
 }

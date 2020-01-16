@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../../css/bootstrap.min.css" />
     <link rel="stylesheet" href="../../css/datatables.min.css" />
     <link rel="stylesheet" href="../../css/datatable_customization.css" />
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="../../css/jquery.dataTables.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap&subset=chinese-simplified">
@@ -20,11 +20,11 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-3 page-title">咨询单管理</div>
-            <div class="col-md-4"></div>
+            <div class="col-12 col-md-3 page-title float-left">咨询单管理</div>
+            <div class="col-md-2"></div>
 
-            <div class="col-12 col-md-5 type-selection">
-                <select class="">
+            <div class="col-12 col-md-7 text-right customized-field">
+                <select class="type-selection">
                     <option value="1">富集采</option>
                     <option value="2">富博士-法务博士</option>
                     <option value="3">富博士-学院课程</option>
@@ -33,6 +33,9 @@
                     <option value="6">富心安</option>
                     <option value="7">MicroCloud行业专业云</option>
                 </select>
+                <!-- <div class="add-product">
+                    <button class="btn btn-primary">添加产品</button>
+                </div> -->
             </div>
         </div>
 
@@ -257,7 +260,7 @@
                 pagingType: "full_numbers",
                 language: {
                     search: window.innerWidth > 768 ? "搜索:" : "", //for RWD
-                    searchPlaceholder: "请输入求购单编号、币别...etc",
+                    searchPlaceholder: "请输入您的搜寻条件",
                     Show: "显示",
                     entries: "笔资料",
                     loadingRecords: "资料载入中，请稍候...",

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../../css/bootstrap.min.css" />
     <link rel="stylesheet" href="../../css/datatables.min.css" />
     <link rel="stylesheet" href="../../css/datatable_customization.css" />
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="../../css/jquery.dataTables.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap&subset=chinese-simplified">
@@ -40,10 +40,14 @@
         <table id="table_id" class="display responsive text-center" width="100%">
             <thead>
                 <tr>
-                    <th>求购单编号</th>
-                    <th>提出时间</th>
-                    <th>币别</th>
-                    <th>求购单状态</th>
+                    <th>产品编码</th>
+                    <th>名称</th>
+                    <th>类目</th>
+                    <th>产品税率</th>
+                    <th>销售单位</th>
+                    <th>添加时间</th>
+                    <th>状态</th>
+                    <th>审核状态</th>
                     <th>操作</th>
                 </tr>
             </thead>
@@ -72,143 +76,47 @@
         var mock_data = [
             {
                 "no": "19122314254101",
+                "name": "产品BOSSTEST01",
+                "category": "企业应用",
+                "tax_rate": "实物类13%",
+                "unit": "月",
                 "submitted_date": "2019-12-23 14:25:00",
-                "currency": "USD",
-                "status": "报价逾期",
-                "manupulate": "查询资料"
-            },
-            {
-                "no": "19122017197430",
-                "submitted_date": "2019-12-20 17:19:00",
-                "currency": "CNY",
-                "status": "新求购单",
-                "manupulate": "去支付"
+                "status": "未上架",
+                "verify_status": "未提交",
+                "manupulate": "查询资料",
             },
             {
                 "no": "19122314254102",
-                "submitted_date": "2019-12-23 14:25:00",
-                "currency": "USD",
-                "status": "订单成立",
-                "manupulate": "查询资料"
-            },
-            {
-                "no": "19122017197431",
-                "submitted_date": "2019-12-20 17:19:00",
-                "currency": "CNY",
-                "status": "新求购单",
-                "manupulate": "去支付"
+                "name": "产品BOSSTEST02",
+                "category": "企业应用",
+                "tax_rate": "实物类13%",
+                "unit": "月",
+                "submitted_date": "2017-12-25 14:25:00",
+                "status": "已上架",
+                "verify_status": "已审核",
+                "manupulate": "查询资料",
             },
             {
                 "no": "19122314254103",
-                "submitted_date": "2019-12-23 14:25:00",
-                "currency": "USD",
-                "status": "报价失效",
-                "manupulate": "查询资料"
-            },
-            {
-                "no": "19122017197432",
-                "submitted_date": "2019-12-20 17:19:00",
-                "currency": "CNY",
-                "status": "订单成立",
-                "manupulate": "去支付"
+                "name": "产品BOSSTEST03",
+                "category": "企业应用",
+                "tax_rate": "实物类13%",
+                "unit": "月",
+                "submitted_date": "2020-12-20 07:25:00",
+                "status": "未上架",
+                "verify_status": "未提交",
+                "manupulate": "查询资料",
             },
             {
                 "no": "19122314254104",
+                "name": "产品BOSSTEST04",
+                "category": "企业应用",
+                "tax_rate": "实物类13%",
+                "unit": "月",
                 "submitted_date": "2019-12-23 14:25:00",
-                "currency": "USD",
-                "status": "报价逾期",
-                "manupulate": "去支付"
-            },
-            {
-                "no": "19122017197433",
-                "submitted_date": "2019-12-20 17:19:00",
-                "currency": "CNY",
-                "status": "报价中",
-                "manupulate": "查询资料"
-            },
-            {
-                "no": "19122314254105",
-                "submitted_date": "2019-12-23 14:25:00",
-                "currency": "USD",
-                "status": "报价逾期",
-                "manupulate": "去支付"
-            },
-            {
-                "no": "19122017197434",
-                "submitted_date": "2019-12-20 17:19:00",
-                "currency": "CNY",
-                "status": "报价中",
-                "manupulate": "查询资料"
-            },
-            {
-                "no": "19122314254101",
-                "submitted_date": "2019-12-23 14:25:00",
-                "currency": "USD",
-                "status": "报价逾期",
-                "manupulate": "去支付"
-            },
-            {
-                "no": "19122017197430",
-                "submitted_date": "2019-12-20 17:19:00",
-                "currency": "CNY",
-                "status": "新求购单",
-                "manupulate": "查询资料"
-            },
-            {
-                "no": "19122314254102",
-                "submitted_date": "2019-12-23 14:25:00",
-                "currency": "USD",
-                "status": "报价中",
-                "manupulate": "去支付"
-            },
-            {
-                "no": "19122017197431",
-                "submitted_date": "2019-12-20 17:19:00",
-                "currency": "CNY",
-                "status": "报价完成",
-                "manupulate": "查询资料"
-            },
-            {
-                "no": "19122314254103",
-                "submitted_date": "2019-12-23 14:25:00",
-                "currency": "USD",
-                "status": "报价完成",
-                "manupulate": "去支付"
-            },
-            {
-                "no": "19122017197432",
-                "submitted_date": "2019-12-20 17:19:00",
-                "currency": "CNY",
-                "status": "新求购单",
-                "manupulate": "查询资料"
-            },
-            {
-                "no": "19122314254104",
-                "submitted_date": "2019-12-23 14:25:00",
-                "currency": "USD",
-                "status": "报价失效",
-                "manupulate": "去支付"
-            },
-            {
-                "no": "19122017197433",
-                "submitted_date": "2019-12-20 17:19:00",
-                "currency": "CNY",
-                "status": "报价完成",
-                "manupulate": "查询资料"
-            },
-            {
-                "no": "19122314254105",
-                "submitted_date": "2019-12-23 14:25:00",
-                "currency": "USD",
-                "status": "报价逾期",
-                "manupulate": "去支付"
-            },
-            {
-                "no": "19122017197434",
-                "submitted_date": "2019-12-20 17:19:00",
-                "currency": "CNY",
-                "status": "订单成立",
-                "manupulate": "去支付"
+                "status": "已上架",
+                "verify_status": "已审核",
+                "manupulate": "查询资料",
             },
         ];
 
@@ -217,38 +125,23 @@
                 data: mock_data,  //Place real data instead.
                 columns: [
                     { data: 'no' },
+                    { data: 'name' },
+                    { data: 'category' },
+                    { data: 'tax_rate' },
+                    { data: 'unit' },
                     { data: 'submitted_date' },
-                    { data: 'currency' },
-                    {
-                        data: 'status', render: function (data, type, row, meta) {
-                            if (type === "display") {
-                                if (data === '新求购单') {
-                                    data = "<a href='../index.html' style='color: #7355fa'>" + "<i class='fa fa-star'></i> 新求购单" + "</a>";
-
-                                } else if (data === '订单成立') {
-                                    data = "<a href='../index.html' style='color: #23d2e2'>" + "<i class='fa fa-file-text-o'></i> 订单成立" + "</a>";
-                                } else if (data === '报价中') {
-                                    data = "<a href='../index.html' style='color: #f5a53c'>" + "<i class='fa fa-hourglass-start'></i> 报价中" + "</a>";
-                                } else if (data === '报价完成') {
-                                    data = "<a href='../index.html' style='color: #2de069'>" + "<i class='fa fa-check-circle-o'></i> 报价完成" + "</a>";
-                                } else if (data === '报价逾期') {
-                                    data = "<a href='../index.html' style='color: #6d6d6d'>" + "<i class='fa fa-minus-circle'></i> 报价逾期" + "</a>";
-                                } else {
-                                    data = "<a href='../index.html' style='color: #f34242'>" + "<i class='fa fa-times-circle-o'></i> 报价失效" + "</a>";
-                                }
-                            }
-                            return data;
-                        }
-                    },
+                    { data: 'status' },
+                    { data: 'verify_status' },
                     {
                         data: 'manupulate', render: function (data, type, row, meta) {
                             if (type === "display") {
-                                if (data === '查询资料') {
-                                    data = "<a href='../index.html'>" + "<i class='fa fa-search' title='查询资料'></i>" + "</a>";
+                                data = "<div style='min-width:200px'><a href='/'>编辑</a>丨 <a href='/'>图片</a>丨 <a href='/'>预览</a>丨 <a href='/'>提交审核</a>丨 <a href='/'>删除</a>丨 <a href='/'>添加版本</a>丨 <a href='/'>API配置</a>丨 <a href='/'>自定义属性</a></div>"
+                                // if (data === '查询资料') {
+                                //     data = "<a href='../index.html'>" + "<i class='fa fa-search' title='查询资料'></i>" + "</a>";
 
-                                } else {
-                                    data = "<a href='../index.html'>" + "<i class='fa fa-share' title='去支付'></i>" + "</a>";
-                                }
+                                // } else {
+                                //     data = "<a href='../index.html'>" + "<i class='fa fa-share' title='去支付'></i>" + "</a>";
+                                // }
                             }
                             return data;
                         }
@@ -258,7 +151,7 @@
                 pagingType: "full_numbers",
                 language: {
                     search: window.innerWidth > 768 ? "搜索:" : "", //for RWD
-                    searchPlaceholder: "请输入求购单编号、币别...etc",
+                    searchPlaceholder: "请输入您的搜寻条件",
                     Show: "显示",
                     entries: "笔资料",
                     loadingRecords: "资料载入中，请稍候...",
